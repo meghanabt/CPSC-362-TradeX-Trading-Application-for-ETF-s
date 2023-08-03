@@ -19,27 +19,28 @@ if __name__ == "__main__":
         controller.display_historical_graph(data)
 
         #Plot for Moving Average Stratergy for Both FNGU and FNGD
-        controller.movingAveragesPlot('FNGU',controller.movingAverageSignals(controller.moving_Average(data[0])))
-        controller.movingAveragesPlot('FNGD',controller.movingAverageSignals(controller.moving_Average(data[1])))
+        controller.movingAveragesPlot('FNGU',controller.movingAverageSignals(controller.moving_Average(data[0]),100000,'FNGU'))
+        controller.movingAveragesPlot('FNGD',controller.movingAverageSignals(controller.moving_Average(data[1]),100000,'FNGD'))
 
         #define and get bollinger bands
-        controller.bollingerBands(data[0],30)
-        controller.bollingerBands(data[1],30)
+        controller.bollingerBands(data[0],20)
+        controller.bollingerBands(data[1],20)
 
         #determine RSI for FNGU and FNGD
         controller.RSI(data[0],30)
         controller.RSI(data[1],30)
 
         #buy and sell signals for FNGU using Bollinger-RSI stratergy
-        buy_Price_FNGU,sell_Price_FNGU= controller.stratergy(data[0])
+        buy_Price_FNGU,sell_Price_FNGU= controller.stratergy(data[0],100000, 'FNGU')
         data[0]['Buy']=buy_Price_FNGU
         data[0]['Sell']=sell_Price_FNGU
 
         #buy and sell signals for FNGD using Bollinger-RSI stratergy
-        buy_Price_FNGD,sell_Price_FNGD= controller.stratergy(data[1])
+        buy_Price_FNGD,sell_Price_FNGD= controller.stratergy(data[1],100000, 'FNGD')
         data[1]['Buy']=buy_Price_FNGD
         data[1]['Sell']=sell_Price_FNGD
 
         #plots for Bollinger Band Stratergy + RSI for FNGU and FNGD
         controller.bollingerPlot('FNGU', data[0])
         controller.bollingerPlot('FNGD', data[1])
+

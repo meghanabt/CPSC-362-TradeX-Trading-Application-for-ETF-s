@@ -24,8 +24,8 @@ def moving_Average(data):
     return data
 
 #determine buy and sell signals using moving average cross over stratergy
-def movingAverageSignals(data):
-    return model.stockPurchase(data)   
+def movingAverageSignals(data,balance,name):
+    return model.stockPurchase(data,balance,name)   
 
 #plot the resultant of buy and sell signals according to averages
 def movingAveragesPlot(name, data):
@@ -40,8 +40,8 @@ def RSI(data,window_Size):
     model.RSI(data, window_Size)
 
 #determine the buy and sell signals using Bollinger Band + RSI Stratergy
-def stratergy(data):
-    return model.stratergy(data)
+def stratergy(data, value , name):
+    return model.stratergy(data,value, name)
 
 #plot the signals using the buy and sell signals using Bollinger Band + RSI Stratergy
 def bollingerPlot(name, data):
