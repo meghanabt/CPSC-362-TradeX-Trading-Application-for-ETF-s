@@ -5,6 +5,8 @@ import datetime
 import pandas as pd
 import numpy as np
 
+
+
 #function to fetch data from API
 def getData(tickers):
         API_Endpoint=[]
